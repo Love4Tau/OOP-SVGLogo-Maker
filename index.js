@@ -45,11 +45,11 @@ class SVG {
     }
 
     render() {
-        return `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">${this.textElm}${this.shapeElm}</svg>`
+        return `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">${this.shapeElm}${this.textElm}</svg>`
     }
     
     setTextElem(text, color) {
-        this.textElm = `<text x="50%" y="50%" text-anchor="middle" fill"${color}">${text}</text>`
+        this.textElm = `<text x="50" y="50" text-anchor="middle" dominant-baseline="middle" fill"${color}" font-size="40">${text}</text>`
     }
 
     setShapeElem(shape){
@@ -84,11 +84,31 @@ async function init() {
 
     text_color = userInput.color;
 
-    shape_color = userInput["color-shape"];
+    user_shape_color = userInput["color-shape"];
 
-    shape_type = userInput.shape;
+    user_shape = userInput.shape;
 
-    console.log(text_color + shape_color + shape_type);
+    console.log(text_color + user_shape_color + user_shape);
+
+    let shape_type;
+
+    if(user_shape === "Triangle") {
+        shape_type = new Triangle();
+    } else if (user_shape === "Circle") {
+        shape_type = new Circle();
+    } else {
+        shape_type = new Square();
+    }
+    shape_type.setColor(user_shape_color)
+
+    var svg = new SVG();
+    var svgContent = "";
+    var svgFile = "logo.svg"
+    svg.setTextElem(user_input, text_color);
+    svg.setShapeElem(shape_type);
+    svgContent = svg.render();
+
+    writeToFile(svgFile, svgContent)
 }
 
 init();
