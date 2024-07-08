@@ -39,17 +39,16 @@ const questions = [
 //Create svg class
 
 class SVG {
-    constructor() {
-        this.textElm = ""
-        this.shapeElm = ""
-    }
+
+    textElm = ""
+    shapeElm = ""
 
     render() {
         return `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">${this.shapeElm}${this.textElm}</svg>`
     }
     
     setTextElem(text, color) {
-        this.textElm = `<text x="50" y="50" text-anchor="middle" dominant-baseline="middle" fill="${color}" font-size="35">${text}</text>`
+        this.textElm = `<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="${color}" font-size="35">${text}</text>`
     }
 
     setShapeElem(shape){
@@ -59,12 +58,12 @@ class SVG {
 
 //Create function to write data to file
 
-function writeToFile(fileName, data) {
+function writeDataToFile(fileName, data) {
     fs.writeFile(fileName, data, function(err) {
         if(err) {
             return console.log(err)
         }
-            console.log("Success!")
+            console.log("Generated logo.svg!")
     })
 }
 
@@ -88,7 +87,7 @@ async function init() {
 
     user_shape = userInput.shape;
 
-    console.log(text_color + user_shape_color + user_shape);
+    // console.log(text_color + user_shape_color + user_shape);
 
     let shape_type;
 
@@ -108,7 +107,7 @@ async function init() {
     svg.setShapeElem(shape_type);
     svgContent = svg.render();
 
-    writeToFile(svgFile, svgContent)
+    writeDataToFile(svgFile, svgContent)
 }
 
 init();
