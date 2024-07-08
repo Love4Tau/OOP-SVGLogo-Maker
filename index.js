@@ -49,7 +49,7 @@ class SVG {
     }
     
     setTextElem(text, color) {
-        this.textElm = `<text x="50" y="50" text-anchor="middle" dominant-baseline="middle" fill="${color}" font-size="40">${text}</text>`
+        this.textElm = `<text x="50" y="50" text-anchor="middle" dominant-baseline="middle" fill="${color}" font-size="35">${text}</text>`
     }
 
     setShapeElem(shape){
