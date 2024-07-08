@@ -36,6 +36,27 @@ const questions = [
     
 ]
 
+//Create svg class
+
+class SVG {
+    constructor() {
+        this.textElm = ""
+        this.shapeElm = ""
+    }
+
+    render() {
+        return `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">${this.textElm}${this.shapeElm}</svg>`
+    }
+    
+    setTextElem(text, color) {
+        this.textElm = `<text x="50%" y="50%" text-anchor="middle" fill"${color}">${text}</text>`
+    }
+
+    setShapeElem(shape){
+        this.shapeElm = shape.render();
+    }
+}
+
 //Create function to write data to file
 
 function writeToFile(fileName, data) {
