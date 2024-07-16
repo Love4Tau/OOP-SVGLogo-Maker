@@ -47,6 +47,8 @@ THEN I am shown a 300x200 pixel image that matches the criteria I entered
 
 ![alt text](./assets/images/Successful%20tests.png)
 
+[Walk-through Video](https://drive.google.com/file/d/1slLJ7CC8XgM93jugqjaZ0MVh2kYDGZjl/view?usp=sharing)
+
 ## Credits
 
 Used bootcamp class drills and re-watched class cloud recordings.
